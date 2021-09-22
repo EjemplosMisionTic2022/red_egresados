@@ -1,5 +1,5 @@
-name: red_egresados_reducido
-description: A new Flutter project.
+name: red_egresados
+description: Red Egresados - MisionTIC 2022.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.

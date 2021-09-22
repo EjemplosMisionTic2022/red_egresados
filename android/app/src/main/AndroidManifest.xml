@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.red_egresados_reducido">
+    package="com.example.red_egresados">
    <application
-        android:label="red_egresados_reducido"
+        android:label="red_egresados"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

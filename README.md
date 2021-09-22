@@ -1,4 +1,4 @@
-# red_egresados_reducido
+# red_egresados
 
 A new Flutter project.
 

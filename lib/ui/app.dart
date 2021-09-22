@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:red_egresados_reducido/ui/pages/home_page.dart';
+import 'package:red_egresados/ui/pages/content/content_page.dart';
 
 class App extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,7 +19,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ContentPage(),
     );
   }
 }
