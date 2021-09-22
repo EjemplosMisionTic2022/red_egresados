@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class CustomAppBar extends AppBar {
   final Widget tile;
@@ -13,5 +14,16 @@ class CustomAppBar extends AppBar {
           key: key,
           centerTitle: true,
           title: tile,
+          actions: [
+            IconButton(
+              icon: Icon(
+                Icons.brightness_4_rounded,
+              ),
+              onPressed: () {
+                Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light(): ThemeData.dark());
+              },
+            ),
+          ],
         );
 }
