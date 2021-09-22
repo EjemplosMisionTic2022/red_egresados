@@ -20,8 +20,8 @@ class CustomAppBar extends AppBar {
                 Icons.brightness_4_rounded,
               ),
               onPressed: () {
-                Get.changeTheme(
-                    Get.isDarkMode ? ThemeData.light(): ThemeData.dark());
+                Get.changeThemeMode(
+                    Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
               },
             ),
           ],

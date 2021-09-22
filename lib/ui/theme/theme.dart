@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'colors.dart';
 import 'text_styles.dart';
 
@@ -7,8 +8,7 @@ class MyTheme {
     return ThemeData(
       brightness: Brightness.light,
       primarySwatch: AppColors.createMaterialColor(AppColors.primaryColor),
-      accentColor:
-          AppColors.createMaterialColor(AppColors.accentColor).shade500,
+      colorScheme: AppColors.lightScheme,
       fontFamily: AppTextStyle.fontFamily,
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(),
@@ -23,10 +23,7 @@ class MyTheme {
     return ThemeData(
       brightness: Brightness.dark,
       primarySwatch: AppColors.createMaterialColor(AppColors.primaryColor),
-      accentColor:
-          AppColors.createMaterialColor(AppColors.accentColor).shade500,
-      toggleableActiveColor:
-          AppColors.createMaterialColor(AppColors.primaryColor).shade500,
+      colorScheme: AppColors.darkScheme,
       // this can all be copied, waiting for verification
       fontFamily: AppTextStyle.fontFamily,
       floatingActionButtonTheme: FloatingActionButtonThemeData(),
