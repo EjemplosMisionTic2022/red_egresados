@@ -6,7 +6,7 @@ class PostCard extends StatelessWidget {
   final VoidCallback onChat;
 
   // PostCard constructor
-  PostCard(
+  const PostCard(
       {Key? key,
       required this.title,
       required this.content,
@@ -38,7 +38,7 @@ class PostCard extends StatelessWidget {
       ),
       // topRightWidget widget as an IconButton
       topRightWidget: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.chat_outlined,
           color: Colors.blue,
         ),

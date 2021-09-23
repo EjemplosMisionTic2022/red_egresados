@@ -8,7 +8,7 @@ class LocationCard extends StatelessWidget {
   final VoidCallback? onUpdate;
 
   // PostCard constructor
-  LocationCard(
+  const LocationCard(
       {Key? key,
       required this.title,
       required this.lat,
@@ -35,7 +35,7 @@ class LocationCard extends StatelessWidget {
 
       topRightWidget: onUpdate != null
           ? IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.sync_outlined,
                 color: Colors.blue,
               ),
@@ -64,7 +64,7 @@ class LocationCard extends StatelessWidget {
                 ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             width: 10.0,
           ),
           Expanded(

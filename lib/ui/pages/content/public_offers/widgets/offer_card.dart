@@ -7,7 +7,7 @@ class OfferCard extends StatelessWidget {
   final VoidCallback onCopy, onApply;
 
   // OfferCard constructor
-  OfferCard(
+  const OfferCard(
       {Key? key,
       required this.title,
       required this.content,
@@ -30,7 +30,7 @@ class OfferCard extends StatelessWidget {
       ),
       // topRightWidget widget as an IconButton
       topRightWidget: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.copy_outlined,
           color: Colors.blue,
         ),
@@ -43,8 +43,8 @@ class OfferCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(4.0),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.architecture,
                   color: Colors.blue,
@@ -54,9 +54,9 @@ class OfferCard extends StatelessWidget {
                 arch,
                 style: Theme.of(context).textTheme.caption,
               ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
+              const Spacer(),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.developer_mode_outlined,
                   color: Colors.blue,
@@ -66,9 +66,9 @@ class OfferCard extends StatelessWidget {
                 level,
                 style: Theme.of(context).textTheme.caption,
               ),
-              Spacer(),
-              Padding(
-                padding: const EdgeInsets.all(4.0),
+              const Spacer(),
+              const Padding(
+                padding: EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.payments_outlined,
                   color: Colors.blue,
@@ -80,7 +80,7 @@ class OfferCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8.0,
           ),
         ],

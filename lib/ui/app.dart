@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:red_egresados/ui/pages/content/content_page.dart';
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -19,7 +21,7 @@ class App extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: ContentPage(),
+      home: const ContentPage(),
     );
   }
 }

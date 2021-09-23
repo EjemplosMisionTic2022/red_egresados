@@ -10,16 +10,14 @@ class ContentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        tile: Text("Red Egresados"),
+        tile: const Text("Red Egresados"),
         context: context,
       ),
-      body: SafeArea(
+      body: const SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-          child: Container(
-            child: Center(
-              child: Text("Red Egresados"),
-            ),
+          padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
+          child: Center(
+            child: Text("Red Egresados"),
           ),
         ),
       ),

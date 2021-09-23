@@ -6,7 +6,7 @@ class StateCard extends StatelessWidget {
   final VoidCallback onChat;
 
   // StateCard constructor
-  StateCard(
+  const StateCard(
       {Key? key,
       required this.title,
       required this.content,
@@ -38,7 +38,7 @@ class StateCard extends StatelessWidget {
       ),
       // topRightWidget widget as an IconButton
       topRightWidget: IconButton(
-        icon: Icon(
+        icon: const Icon(
           Icons.chat_outlined,
           color: Colors.blue,
         ),

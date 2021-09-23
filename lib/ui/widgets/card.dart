@@ -5,7 +5,7 @@ class AppCard extends StatelessWidget {
   final String title;
 
   // AppCard constructor
-  AppCard(
+  const AppCard(
       {Key? key,
       required this.title,
       this.content,
@@ -30,7 +30,7 @@ class AppCard extends StatelessWidget {
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.25),
-              offset: Offset(0, 1.0),
+              offset: const Offset(0, 1.0),
               blurRadius: 4.0,
             ),
           ],
@@ -42,7 +42,7 @@ class AppCard extends StatelessWidget {
               children: [
                 topLeftWidget != null
                     ? topLeftWidget!
-                    : SizedBox(
+                    : const SizedBox(
                         width: 48.0,
                       ),
                 Expanded(
@@ -54,12 +54,12 @@ class AppCard extends StatelessWidget {
                 ),
                 topRightWidget != null
                     ? topRightWidget!
-                    : SizedBox(
+                    : const SizedBox(
                         width: 48.0,
                       ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 6.0,
             ),
             if (content != null)
