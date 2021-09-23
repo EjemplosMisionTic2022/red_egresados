@@ -29,13 +29,15 @@ class AppColors {
     return MaterialColor(color.value, swatch);
   }
 
-  static ColorScheme lightScheme = ColorScheme.fromSwatch(
-      primarySwatch: createMaterialColor(primaryColor),
-      accentColor: createMaterialColor(accentColor),
-      brightness: Brightness.light);
+  static ColorScheme lightScheme = ColorScheme.light(
+    primary: primaryColor,
+    primaryVariant: darkPrimaryColor,
+    secondary: accentColor,
+  );
 
-  static ColorScheme darkScheme = ColorScheme.fromSwatch(
-      primarySwatch: createMaterialColor(primaryColor),
-      accentColor: createMaterialColor(accentColor),
-      brightness: Brightness.dark);
+  static ColorScheme darkScheme = ColorScheme.dark(
+    primary: primaryColor,
+    primaryVariant: darkPrimaryColor,
+    secondary: accentColor,
+  );
 }

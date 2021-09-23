@@ -9,26 +9,38 @@ class AppTextStyle {
   static TextStyle get defaultFontStyle => GoogleFonts.openSans();
 
   // if we need to change a style
+
+  // Headline 1
   static TextStyle get headline1 => GoogleFonts.openSans(
         fontSize: 18.0,
         fontWeight: FontWeight.w700,
       );
-
-  static TextStyle get cardTitle => GoogleFonts.openSans(
+  // Headline 2
+  static TextStyle get headline2 => GoogleFonts.openSans(
         fontSize: 16.0,
         fontWeight: FontWeight.w600,
       );
-  static TextStyle get cardContent => GoogleFonts.openSans(
-        fontSize: 16.0,
-      );
-  static TextStyle get cardDetails => GoogleFonts.openSans(
-        fontSize: 16.0,
-        fontWeight: FontWeight.w600,
-      );
-
-  /// The default text style for [Material].
-  static TextStyle get appBodyText => GoogleFonts.openSans(
-        fontSize: 18.0,
+  // Headline 3
+  static TextStyle get headline3 => GoogleFonts.openSans(
+        fontSize: 14.0,
         fontWeight: FontWeight.w700,
+      );
+  // Bodytext 1
+  static TextStyle get bodytext1 => GoogleFonts.roboto(
+        fontSize: 16.0,
+        color: Colors.black,
+      );
+  // Caption
+  static TextStyle get caption => GoogleFonts.openSans(
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
+      );
+
+  static TextTheme get textTheme => TextTheme(
+        headline1: headline1,
+        headline2: headline2,
+        headline3: headline3,
+        bodyText1: bodytext1,
+        caption: caption,
       );
 }
