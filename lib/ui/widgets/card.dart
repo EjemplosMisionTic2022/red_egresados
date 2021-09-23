@@ -21,20 +21,10 @@ class AppCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      elevation: 2,
       child: Container(
         padding: const EdgeInsets.only(
             top: 4.0, bottom: 16.0, left: 8.0, right: 8.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.25),
-              offset: Offset(0, 1.0),
-              blurRadius: 4.0,
-            ),
-          ],
-        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

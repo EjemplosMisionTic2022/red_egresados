@@ -1,8 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
+import 'package:red_egresados/ui/pages/content/location/location_screen.dart';
+import 'package:red_egresados/ui/pages/content/public_offers/public_offers_screen.dart';
+import 'package:red_egresados/ui/pages/content/states/states_screen.dart';
+import 'package:red_egresados/ui/pages/content/users_offers/users_offers_screen.dart';
 import 'package:red_egresados/ui/widgets/appbar.dart';
 
-class ContentPage extends StatelessWidget {
+class ContentPage extends StatefulWidget {
   const ContentPage({Key? key}) : super(key: key);
+
+  @override
+  _State createState() => _State();
+}
+
+class _State extends State<ContentPage> {
+  int _selectedIndex = 0;
+  Widget _content = StatesScreen();
+
+  // NavBar action
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+      switch (_selectedIndex) {
+        case 1:
+          _content = UsersOffersScreen();
+          break;
+        case 2:
+          _content = PublicOffersScreen();
+          break;
+        case 3:
+          _content = LocationScreen();
+          break;
+        case 4:
+          break;
+        default:
+          _content = StatesScreen();
+      }
+    });
+  }
 
   // We create a Scaffold that is used for all the content pages
   // We only define one AppBar, and one scaffold.
@@ -10,18 +45,48 @@ class ContentPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
+        picUrl: 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg',
         tile: Text("Red Egresados"),
         context: context,
+        onSignOff: () {
+          // TODO Navigate to Auth
+        },
       ),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
-          child: Container(
-            child: Center(
-              child: Text("Red Egresados"),
-            ),
+          child: AnimatedSwitcher(
+            duration: Duration(milliseconds: 500),
+            child: _content,
           ),
         ),
+      ),
+      // Content screen navbar
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb_outline_rounded),
+            label: 'Estados',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.group_outlined),
+            label: 'Social',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.public_outlined),
+            label: 'Verificado',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.place_outlined),
+            label: 'Ubicación',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble_outline),
+            label: 'Mensajes',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
       ),
     );
   }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:red_egresados/ui/widgets/card.dart';
 
 class OfferCard extends StatelessWidget {
@@ -22,6 +23,7 @@ class OfferCard extends StatelessWidget {
   // Passing all the customizable views as parameters
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
       title: title,
       content: Text(
@@ -32,9 +34,12 @@ class OfferCard extends StatelessWidget {
       topRightWidget: IconButton(
         icon: Icon(
           Icons.copy_outlined,
-          color: Colors.blue,
+          color: primaryColor,
         ),
-        onPressed: onCopy,
+        onPressed: () {
+          Clipboard.setData(ClipboardData(text: content));
+          // TODO Show snackbar notifiying that the data has been copied
+        },
       ),
       // extraContent widget as a column that contains more details about the offer
       // and an extra action (onApply)
@@ -47,7 +52,7 @@ class OfferCard extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.architecture,
-                  color: Colors.blue,
+                  color: primaryColor,
                 ),
               ),
               Text(
@@ -59,7 +64,7 @@ class OfferCard extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.developer_mode_outlined,
-                  color: Colors.blue,
+                  color: primaryColor,
                 ),
               ),
               Text(
@@ -71,7 +76,7 @@ class OfferCard extends StatelessWidget {
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
                   Icons.payments_outlined,
-                  color: Colors.blue,
+                  color: primaryColor,
                 ),
               ),
               Text(

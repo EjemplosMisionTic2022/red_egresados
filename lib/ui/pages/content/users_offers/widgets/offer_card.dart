@@ -18,6 +18,7 @@ class PostCard extends StatelessWidget {
   // Passing all the customizable views as parameters
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
       title: title,
       content: Text(
@@ -40,7 +41,7 @@ class PostCard extends StatelessWidget {
       topRightWidget: IconButton(
         icon: Icon(
           Icons.chat_outlined,
-          color: Colors.blue,
+          color: primaryColor,
         ),
         onPressed: onChat,
       ),

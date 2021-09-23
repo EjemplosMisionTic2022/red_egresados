@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'colors.dart';
 import 'text_styles.dart';
 
@@ -10,6 +9,13 @@ class MyTheme {
       colorScheme: AppColors.lightScheme,
       fontFamily: AppTextStyle.fontFamily,
       textTheme: AppTextStyle.textTheme,
+      cardTheme: CardTheme(
+        color: Colors.white,
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        unselectedItemColor: Colors.grey.shade500,
+        selectedItemColor: AppColors.lightScheme.primary,
+      ),
       inputDecorationTheme: InputDecorationTheme(
         border: OutlineInputBorder(),
         fillColor: Colors.grey.shade300,
@@ -30,6 +36,10 @@ class MyTheme {
         bodyText1: AppTextStyle.bodytext1.copyWith(
           color: Colors.white70,
         ),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        unselectedItemColor: Colors.grey.shade400,
+        selectedItemColor: AppColors.lightScheme.primary,
       ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(),
       // copy from ligthTheme

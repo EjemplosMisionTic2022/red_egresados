@@ -21,14 +21,17 @@ class LocationCard extends StatelessWidget {
   // Passing all the customizable views as parameters
   @override
   Widget build(BuildContext context) {
+    Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
       title: title,
       // topLeftWidget widget as an Icon
       topLeftWidget: Padding(
         padding: const EdgeInsets.all(12.0),
         child: Icon(
-          onUpdate != null ? Icons.my_location_outlined : Icons.near_me_outlined,
-          color: Colors.blue,
+          onUpdate != null
+              ? Icons.my_location_outlined
+              : Icons.near_me_outlined,
+          color: primaryColor,
         ),
       ),
       // topRightWidget widget as an IconButton or null
@@ -37,7 +40,7 @@ class LocationCard extends StatelessWidget {
           ? IconButton(
               icon: Icon(
                 Icons.sync_outlined,
-                color: Colors.blue,
+                color: primaryColor,
               ),
               onPressed: onUpdate,
             )
