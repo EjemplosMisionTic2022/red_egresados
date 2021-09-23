@@ -6,7 +6,7 @@ class PostCard extends StatelessWidget {
   final VoidCallback onChat;
 
   // PostCard constructor
-  PostCard(
+  const PostCard(
       {Key? key,
       required this.title,
       required this.content,

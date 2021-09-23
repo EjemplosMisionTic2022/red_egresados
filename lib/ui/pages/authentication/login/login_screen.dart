@@ -18,61 +18,59 @@ class _State extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Spacer(),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "Iniciar sesión",
-                style: Theme.of(context).textTheme.headline1,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Spacer(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Iniciar sesión",
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: emailController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Correo electrónico',
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: emailController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Correo electrónico',
-                ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: passwordController,
+              obscureText: true,
+              obscuringCharacter: "*",
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Clave',
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextField(
-                controller: passwordController,
-                obscureText: true,
-                obscuringCharacter: "*",
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Clave',
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(14.0),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        Get.offNamed('/content');
-                      },
-                      child: Text("Login"),
-                    ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Get.offNamed('/content');
+                    },
+                    child: const Text("Login"),
                   ),
-                )
-              ],
-            ),
-            TextButton(
-                onPressed: widget.onViewSwitch, child: Text("Registrarse")),
-            Spacer(),
-          ],
-        ),
+                ),
+              )
+            ],
+          ),
+          TextButton(
+              onPressed: widget.onViewSwitch, child: const Text("Registrarse")),
+          const Spacer(),
+        ],
       ),
     );
   }

@@ -3,7 +3,7 @@ import 'widgets/location_card.dart';
 
 class LocationScreen extends StatefulWidget {
   // UsersOffers empty constructor
-  LocationScreen({Key? key}) : super(key: key);
+  const LocationScreen({Key? key}) : super(key: key);
 
   @override
   _State createState() => _State();

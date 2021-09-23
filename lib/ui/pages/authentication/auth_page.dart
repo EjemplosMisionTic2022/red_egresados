@@ -45,7 +45,7 @@ class _State extends State<AuthenticationPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 24.0, horizontal: 16.0),
           child: AnimatedSwitcher(
-            duration: Duration(milliseconds: 500),
+            duration: const Duration(milliseconds: 500),
             child: _content,
           ),
         ),

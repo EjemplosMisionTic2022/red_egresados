@@ -5,7 +5,7 @@ class AppCard extends StatelessWidget {
   final String title;
 
   // AppCard constructor
-  AppCard(
+  const AppCard(
       {Key? key,
       required this.title,
       this.content,
@@ -32,7 +32,7 @@ class AppCard extends StatelessWidget {
               children: [
                 topLeftWidget != null
                     ? topLeftWidget!
-                    : SizedBox(
+                    : const SizedBox(
                         width: 48.0,
                       ),
                 Expanded(
@@ -44,12 +44,12 @@ class AppCard extends StatelessWidget {
                 ),
                 topRightWidget != null
                     ? topRightWidget!
-                    : SizedBox(
+                    : const SizedBox(
                         width: 48.0,
                       ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 6.0,
             ),
             if (content != null)
