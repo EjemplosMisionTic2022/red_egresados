@@ -59,10 +59,11 @@ class _State extends State<LoginScreen> {
                   child: Padding(
                     padding: const EdgeInsets.all(14.0),
                     child: ElevatedButton(
-                        onPressed: () {
-                          // TODO Navigate to Content
-                        },
-                        child: Text("Login")),
+                      onPressed: () {
+                        Get.offNamed('/content');
+                      },
+                      child: Text("Login"),
+                    ),
                   ),
                 )
               ],

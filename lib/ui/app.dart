@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_egresados/ui/pages/authentication/auth_page.dart';
 import 'package:red_egresados/ui/pages/content/content_page.dart';
 import 'package:red_egresados/ui/theme/theme.dart';
 
@@ -17,7 +18,12 @@ class App extends StatelessWidget {
       darkTheme: MyTheme.darkTheme,
       // Por defecto tomara la seleccion del sistema
       themeMode: ThemeMode.system,
-      home: ContentPage(),
+      home: AuthenticationPage(),
+      // We add the two possible routes
+      routes: {
+        '/auth': (context) => AuthenticationPage(),
+        '/content': (context) => ContentPage(),
+      },
     );
   }
 }

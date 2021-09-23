@@ -71,7 +71,7 @@ class _State extends State<SignUpScreen> {
                     padding: const EdgeInsets.all(14.0),
                     child: ElevatedButton(
                       onPressed: () {
-                        // TODO Navigate to Content
+                        Get.offNamed('/content');
                       },
                       child: Text("Registrar"),
                     ),

@@ -49,7 +49,7 @@ class _State extends State<ContentPage> {
         tile: Text("Red Egresados"),
         context: context,
         onSignOff: () {
-          // TODO Navigate to Auth
+          Get.offNamed('/auth');
         },
       ),
       body: SafeArea(

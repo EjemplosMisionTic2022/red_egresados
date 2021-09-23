@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 import 'package:red_egresados/ui/widgets/card.dart';
 
 class OfferCard extends StatelessWidget {
@@ -38,7 +39,12 @@ class OfferCard extends StatelessWidget {
         ),
         onPressed: () {
           Clipboard.setData(ClipboardData(text: content));
-          // TODO Show snackbar notifiying that the data has been copied
+          Get.showSnackbar(
+            GetBar(
+              message: "Se ha copiado la oferta al portapapeles.",
+              duration: Duration(seconds: 2),
+            ),
+          );
         },
       ),
       // extraContent widget as a column that contains more details about the offer
