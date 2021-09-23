@@ -3,7 +3,7 @@ import 'widgets/state_card.dart';
 
 class StatesScreen extends StatefulWidget {
   // StatesScreen empty constructor
-  StatesScreen({Key? key}) : super(key: key);
+  const StatesScreen({Key? key}) : super(key: key);
 
   @override
   _State createState() => _State();

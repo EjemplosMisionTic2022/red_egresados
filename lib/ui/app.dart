@@ -5,6 +5,8 @@ import 'package:red_egresados/ui/pages/content/content_page.dart';
 import 'package:red_egresados/ui/theme/theme.dart';
 
 class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,11 @@ class App extends StatelessWidget {
       darkTheme: MyTheme.darkTheme,
       // Por defecto tomara la seleccion del sistema
       themeMode: ThemeMode.system,
-      home: AuthenticationPage(),
+      home: const AuthenticationPage(),
       // We add the two possible routes
       routes: {
-        '/auth': (context) => AuthenticationPage(),
-        '/content': (context) => ContentPage(),
+        '/auth': (context) => const AuthenticationPage(),
+        '/content': (context) => const ContentPage(),
       },
     );
   }

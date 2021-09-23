@@ -9,7 +9,7 @@ class MyTheme {
       colorScheme: AppColors.lightScheme,
       fontFamily: AppTextStyle.fontFamily,
       textTheme: AppTextStyle.textTheme,
-      cardTheme: CardTheme(
+      cardTheme: const CardTheme(
         color: Colors.white,
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -17,7 +17,7 @@ class MyTheme {
         selectedItemColor: AppColors.lightScheme.primary,
       ),
       inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
         fillColor: Colors.grey.shade300,
       ),
     );
@@ -41,7 +41,6 @@ class MyTheme {
         unselectedItemColor: Colors.grey.shade400,
         selectedItemColor: AppColors.lightScheme.primary,
       ),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(),
       // copy from ligthTheme
       inputDecorationTheme: ligthTheme.inputDecorationTheme,
     );

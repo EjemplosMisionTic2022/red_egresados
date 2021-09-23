@@ -27,7 +27,7 @@ class CustomAppBar extends AppBar {
           title: tile,
           actions: [
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.brightness_4_rounded,
               ),
               onPressed: () {
@@ -36,7 +36,7 @@ class CustomAppBar extends AppBar {
               },
             ),
             IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.logout,
               ),
               onPressed: onSignOff,

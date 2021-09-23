@@ -3,7 +3,7 @@ import 'widgets/offer_card.dart';
 
 class PublicOffersScreen extends StatefulWidget {
   // PublicOffersScreen empty constructor
-  PublicOffersScreen({Key? key}) : super(key: key);
+  const PublicOffersScreen({Key? key}) : super(key: key);
 
   @override
   _State createState() => _State();
