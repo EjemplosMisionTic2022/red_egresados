@@ -8,7 +8,7 @@ class OfferCard extends StatelessWidget {
   final VoidCallback onCopy, onApply;
 
   // OfferCard constructor
-  OfferCard(
+  const OfferCard(
       {Key? key,
       required this.title,
       required this.content,
@@ -59,7 +59,7 @@ class OfferCard extends StatelessWidget {
                 arch,
                 style: Theme.of(context).textTheme.caption,
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
@@ -71,7 +71,7 @@ class OfferCard extends StatelessWidget {
                 level,
                 style: Theme.of(context).textTheme.caption,
               ),
-              Spacer(),
+              const Spacer(),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
@@ -85,7 +85,7 @@ class OfferCard extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 8.0,
           ),
         ],

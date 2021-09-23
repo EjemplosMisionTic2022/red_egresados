@@ -6,7 +6,7 @@ class StateCard extends StatelessWidget {
   final VoidCallback onChat;
 
   // StateCard constructor
-  StateCard(
+  const StateCard(
       {Key? key,
       required this.title,
       required this.content,
