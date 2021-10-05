@@ -14,25 +14,27 @@ class _State extends State<LocationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        LocationCard(
-          title: 'MI UBICACIÓN',
-          lat: 11.004556423794284,
-          long: -74.7217010498047,
-          onUpdate: () {},
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8.0),
-          child: Text(
-            'CERCA DE MÍ',
-            style: Theme.of(context).textTheme.headline1,
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          LocationCard(
+            key: const Key("myLocationCard"),
+            title: 'MI UBICACIÓN',
+            lat: 11.004556423794284,
+            long: -74.7217010498047,
+            onUpdate: () {},
           ),
-        ),
-        // ListView on remaining screen space
-        Expanded(
-          child: ListView.builder(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 8.0),
+            child: Text(
+              'CERCA DE MÍ',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
+          // ListView on remaining screen space
+          ListView.builder(
             itemCount: items.length,
             itemBuilder: (context, index) {
               return LocationCard(
@@ -43,9 +45,12 @@ class _State extends State<LocationScreen> {
                 onUpdate: () {},
               );
             },
+            // Avoid scrollable inside scrollable
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

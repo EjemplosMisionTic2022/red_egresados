@@ -19,57 +19,83 @@ class _State extends State<LoginScreen> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Text(
-              "Iniciar sesión",
-              style: Theme.of(context).textTheme.headline1,
-            ),
+          const Spacer(
+            flex: 1,
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Correo electrónico',
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: TextField(
-              controller: passwordController,
-              obscureText: true,
-              obscuringCharacter: "*",
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Clave',
-              ),
-            ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.all(14.0),
-                  child: ElevatedButton(
-                    onPressed: () {
-                      Get.offNamed('/content');
-                    },
-                    child: const Text("Login"),
+          Expanded(
+            flex: 3,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(
+                      "Iniciar sesión",
+                      style: Theme.of(context).textTheme.headline1,
+                    ),
                   ),
                 ),
-              )
-            ],
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      key: const Key("signInEmail"),
+                      controller: emailController,
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Correo electrónico',
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: TextField(
+                      key: const Key("signInPassword"),
+                      controller: passwordController,
+                      obscureText: true,
+                      obscuringCharacter: "*",
+                      decoration: const InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Clave',
+                      ),
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.all(14.0),
+                          child: ElevatedButton(
+                            child: const Text("Login"),
+                            onPressed: () {
+                              Get.offNamed('/content');
+                            },
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Expanded(
+                  child: TextButton(
+                    key: const Key("toSignUpButton"),
+                    child: const Text("Registrarse"),
+                    onPressed: widget.onViewSwitch,
+                  ),
+                ),
+              ],
+            ),
           ),
-          TextButton(
-              onPressed: widget.onViewSwitch, child: const Text("Registrarse")),
-          const Spacer(),
+          const Spacer(
+            flex: 1,
+          ),
         ],
       ),
     );

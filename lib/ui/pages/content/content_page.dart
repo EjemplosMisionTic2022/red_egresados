@@ -65,23 +65,37 @@ class _State extends State<ContentPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.lightbulb_outline_rounded),
+            icon: Icon(
+              Icons.lightbulb_outline_rounded,
+              key: Key("statesSection"),
+            ),
             label: 'Estados',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.group_outlined),
+            icon: Icon(
+              Icons.group_outlined,
+              key: Key("socialSection"),
+            ),
             label: 'Social',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.public_outlined),
+            icon: Icon(
+              Icons.public_outlined,
+              key: Key("offersSection"),
+            ),
             label: 'Verificado',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.place_outlined),
+            icon: Icon(
+              Icons.place_outlined,
+              key: Key("locationSection"),
+            ),
             label: 'Ubicación',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble_outline),
+            icon: Icon(
+              Icons.chat_bubble_outline,
+            ),
             label: 'Mensajes',
           ),
         ],

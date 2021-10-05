@@ -23,6 +23,7 @@ class LocationCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
+      key: const Key("locationCard"),
       title: title,
       // topLeftWidget widget as an Icon
       topLeftWidget: Padding(

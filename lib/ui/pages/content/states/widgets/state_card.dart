@@ -20,6 +20,7 @@ class StateCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
+      key: const Key("statusCard"),
       title: title,
       content: Text(
         content,

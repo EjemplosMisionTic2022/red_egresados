@@ -20,6 +20,7 @@ class PostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     Color primaryColor = Theme.of(context).colorScheme.primary;
     return AppCard(
+      key: const Key("socialCard"),
       title: title,
       content: Text(
         content,
