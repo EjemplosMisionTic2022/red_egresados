@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:red_egresados/domain/repositorires/database.dart';
 
-class FirestoreDB extends DatabaseInterface {
+class RealTimeDB extends DatabaseInterface {
   // We get the Firestore instance
   final _dbReference = FirebaseDatabase.instance.reference();
+
+  DatabaseReference get databaseReference {
+    return _dbReference;
+  }
 
   // With the documents collection ref we add a new document,
   // the reference will be set automatically
@@ -50,12 +55,13 @@ class FirestoreDB extends DatabaseInterface {
 
     // H * m * s * ms
     const lifeSpan = 24 * 60 * 60 * 1000;
-    final minimumTimestamp = DateTime.now().millisecondsSinceEpoch - lifeSpan;
+    final minimumTimestamp = Timestamp.fromMillisecondsSinceEpoch(
+        Timestamp.now().millisecondsSinceEpoch - lifeSpan);
 
     DataSnapshot snapshot = await _dbReference
         .child(collectionPath)
         .orderByChild('timestamp')
-        .startAt(minimumTimestamp)
+        .startAt(minimumTimestamp.millisecondsSinceEpoch)
         .limitToFirst(36)
         .once();
 
@@ -71,12 +77,13 @@ class FirestoreDB extends DatabaseInterface {
 
     // H * m * s * ms
     const lifeSpan = 24 * 60 * 60 * 1000;
-    final minimumTimestamp = DateTime.now().millisecondsSinceEpoch - lifeSpan;
+    final minimumTimestamp = Timestamp.fromMillisecondsSinceEpoch(
+        Timestamp.now().millisecondsSinceEpoch - lifeSpan);
 
     return _dbReference
         .child(collectionPath)
         .orderByChild('timestamp')
-        .startAt(minimumTimestamp)
+        .startAt(minimumTimestamp.millisecondsSinceEpoch)
         .limitToFirst(36)
         .onValue;
   }
@@ -88,5 +95,22 @@ class FirestoreDB extends DatabaseInterface {
       {required String documentPath,
       required Map<String, dynamic> data}) async {
     await _dbReference.child(documentPath).update(data);
+  }
+
+  List<Map<String, dynamic>> extractDocs(DataSnapshot snapshot) {
+    List<Map<String, dynamic>> docs = [];
+    // Since we fetch all the documents within the collection,
+    // we also need to save the references of each of the documents,
+    // so that, if necessary, we can apply actions on them in firestore later.
+    if (snapshot.value != null) {
+      final collection = Map.from(snapshot.value);
+      collection.forEach((key, document) {
+        docs.add({
+          "ref": key,
+          "data": document,
+        });
+      });
+    }
+    return docs;
   }
 }
