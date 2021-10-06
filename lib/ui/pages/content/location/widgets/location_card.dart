@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:red_egresados/ui/widgets/card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class LocationCard extends StatelessWidget {
   final String title;
@@ -11,8 +12,8 @@ class LocationCard extends StatelessWidget {
   const LocationCard(
       {Key? key,
       required this.title,
-      required this.lat,
-      required this.long,
+      this.lat = 0,
+      this.long = 0,
       this.distance,
       this.onUpdate})
       : super(key: key);
@@ -26,14 +27,19 @@ class LocationCard extends StatelessWidget {
       key: const Key("locationCard"),
       title: title,
       // topLeftWidget widget as an Icon
-      topLeftWidget: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Icon(
+      topLeftWidget: IconButton(
+        icon: Icon(
           onUpdate != null
               ? Icons.my_location_outlined
               : Icons.near_me_outlined,
           color: primaryColor,
         ),
+        onPressed: () async {
+          if (onUpdate != null) {
+            final url = "https://www.google.es/maps?q=$lat,$long";
+            await launch(url);
+          }
+        },
       ),
       // topRightWidget widget as an IconButton or null
 
@@ -53,10 +59,12 @@ class LocationCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              if (lat != 0)
               Text(
                 'Latitud:',
                 style: Theme.of(context).textTheme.headline3,
               ),
+              if (long != 0)
               Text(
                 'Longitud:',
                 style: Theme.of(context).textTheme.headline3,
@@ -76,14 +84,16 @@ class LocationCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Text(
-                '$lat',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
-              Text(
-                '$long',
-                style: Theme.of(context).textTheme.bodyText1,
-              ),
+              if (lat != 0)
+                Text(
+                  '$lat',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
+              if (long != 0)
+                Text(
+                  '$long',
+                  style: Theme.of(context).textTheme.bodyText1,
+                ),
               if (distance != null)
                 Text(
                   '$distance Km',
@@ -93,18 +103,6 @@ class LocationCard extends StatelessWidget {
           ))
         ],
       ),
-      /* extraContent: GridView.count(
-        crossAxisCount: 2,
-        children: [
-          Center(
-            child:
-          ),
-
-        ),
-
-
-        ],
-      ), */
     );
   }
 }

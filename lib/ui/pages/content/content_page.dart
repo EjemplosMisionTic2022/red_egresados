@@ -20,7 +20,7 @@ class ContentPage extends StatelessWidget {
       case 2:
         return const PublicOffersScreen();
       case 3:
-        return const LocationScreen();
+        return LocationScreen();
       case 4:
         return const UserMessages();
       default:

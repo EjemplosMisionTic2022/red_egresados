@@ -10,6 +10,7 @@ import 'package:red_egresados/domain/repositorires/auth.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
+import 'package:red_egresados/domain/use_cases/controllers/location.dart';
 import 'package:red_egresados/domain/use_cases/controllers/permissions.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 import 'package:red_egresados/domain/use_cases/permission_management.dart';
@@ -112,6 +113,8 @@ class _AppState extends State<App> {
       log("connection changed");
       connectivityController.connectivity = connectivityStatus;
     });
+
+    Get.put(LocationController());
   }
 
   _firebaseStateInit() {
