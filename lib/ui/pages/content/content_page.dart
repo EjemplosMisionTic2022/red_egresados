@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
+import 'package:red_egresados/ui/pages/content/chats/chat_screen.dart';
 import 'package:red_egresados/ui/pages/content/location/location_screen.dart';
 import 'package:red_egresados/ui/pages/content/public_offers/public_offers_screen.dart';
 import 'package:red_egresados/ui/pages/content/states/states_screen.dart';
@@ -21,7 +22,7 @@ class ContentPage extends StatelessWidget {
       case 3:
         return const LocationScreen();
       case 4:
-        return Container();
+        return const UserMessages();
       default:
         return const StatesScreen();
     }
@@ -37,9 +38,10 @@ class ContentPage extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
+        context: context,
+        controller: controller,
         picUrl: 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg',
         tile: const Text("Red Egresados"),
-        context: context,
         onSignOff: () {
           authController.manager.signOut();
         },

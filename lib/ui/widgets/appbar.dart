@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 
 class CustomAppBar extends AppBar {
   final BuildContext context;
+  final bool home;
   final String picUrl;
   final Widget tile;
   final VoidCallback onSignOff;
+  final UIController controller;
 
   // Creating a custom AppBar that extends from Appbar with super();
   CustomAppBar(
       {Key? key,
       required this.context,
+      required this.controller,
       required this.picUrl,
       required this.tile,
-      required this.onSignOff})
+      required this.onSignOff,
+      this.home = true})
       : super(
           key: key,
           centerTitle: true,
