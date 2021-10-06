@@ -37,8 +37,7 @@ class CustomAppBar extends AppBar {
                 Icons.brightness_4_rounded,
               ),
               onPressed: () {
-                Get.changeThemeMode(
-                    Get.isDarkMode ? ThemeMode.light : ThemeMode.dark);
+                controller.manager.changeTheme(isDarkMode: !Get.isDarkMode);
               },
             ),
             IconButton(

@@ -11,6 +11,7 @@ import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
+import 'package:red_egresados/domain/use_cases/theme_management.dart';
 import 'package:red_egresados/ui/pages/authentication/auth_page.dart';
 import 'package:red_egresados/ui/pages/content/content_page.dart';
 import 'package:red_egresados/ui/theme/theme.dart';
@@ -76,7 +77,13 @@ class _AppState extends State<App> {
 
   void _stateManagementInit() {
     // Dependency Injection
-    Get.put(UIController());
+    UIController uiController = Get.put(UIController());
+    uiController.themeManager = ThemeManager();
+
+    // Reactive
+    ever(uiController.reactiveBrightness, (bool isDarkMode) {
+      uiController.manager.changeTheme(isDarkMode: isDarkMode);
+    });
     // Auth Controller
     AuthController authController = Get.put(AuthController());
 
