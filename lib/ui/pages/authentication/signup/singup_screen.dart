@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
+import 'package:red_egresados/domain/use_cases/auth_management.dart';
 
 class SignUpScreen extends StatefulWidget {
   final VoidCallback onViewSwitch;
@@ -87,8 +88,15 @@ class _State extends State<SignUpScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: ElevatedButton(
-                            onPressed: () {
-                              Get.offNamed('/content');
+                            key: const Key("signUpButton"),
+                            onPressed: () async {
+                              var result = await AuthManagement.signUp(
+                                  name: nameController.text,
+                                  email: emailController.text,
+                                  password: passwordController.text);
+                              if (result) {
+                                Get.offNamed('/content');
+                              }
                             },
                             child: const Text("Registrar"),
                           ),
