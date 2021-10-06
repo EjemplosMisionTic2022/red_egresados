@@ -1,6 +1,10 @@
+import 'dart:developer';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
+import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 import 'package:red_egresados/ui/pages/authentication/auth_page.dart';
 import 'package:red_egresados/ui/pages/content/content_page.dart';
@@ -36,6 +40,8 @@ class App extends StatelessWidget {
     // Dependency Injection
     Get.put(UIController());
     AuthController authController = Get.put(AuthController());
+    ConnectivityController connectivityController =
+        Get.put(ConnectivityController());
     // Watching auth state changes
     // State management: listening for changes on using the reactive var
     ever(authController.reactiveAuth, (bool authenticated) {
@@ -46,6 +52,11 @@ class App extends StatelessWidget {
       } else {
         Get.offNamed('/auth');
       }
+    });
+    // Connectivity stream
+    Connectivity().onConnectivityChanged.listen((connectivityStatus) {
+      log("connection changed");
+      connectivityController.connectivity = connectivityStatus;
     });
   }
 }

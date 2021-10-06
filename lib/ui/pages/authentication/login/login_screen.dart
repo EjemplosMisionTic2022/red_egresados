@@ -1,7 +1,10 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
+import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 
 class LoginScreen extends StatefulWidget {
   final VoidCallback onViewSwitch;
@@ -16,6 +19,7 @@ class _State extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final controller = Get.find<AuthController>();
+  final connectivityController = Get.find<ConnectivityController>();
 
   @override
   Widget build(BuildContext context) {
@@ -79,10 +83,19 @@ class _State extends State<LoginScreen> {
                             key: const Key("signInButton"),
                             child: const Text("Login"),
                             onPressed: () async {
-                              var result = await AuthManagement.signIn(
-                                  email: emailController.text,
-                                  password: passwordController.text);
-                              controller.authenticated = result;
+                              if (connectivityController.connected) {
+                                var result = await AuthManagement.signIn(
+                                    email: emailController.text,
+                                    password: passwordController.text);
+                                controller.authenticated = result;
+                              } else {
+                                Get.showSnackbar(
+                                  GetBar(
+                                    message: "No estas conectado a la red.",
+                                    duration: const Duration(seconds: 2),
+                                  ),
+                                );
+                              }
                             },
                           ),
                         ),
