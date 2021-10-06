@@ -1,31 +1,42 @@
-import 'package:red_egresados/data/repositories/auth.dart';
+import 'package:red_egresados/data/repositories/google_auth.dart';
+import 'package:red_egresados/data/repositories/password_auth.dart';
 
 class AuthManagement {
-  static final Auth _auth = Auth();
+  PasswordAuth auth = PasswordAuth();
+  GoogleAuth googleAuth = GoogleAuth();
 
-  static Future<bool>  signIn(
-      {required String email, required String password}) async {
+  AuthManagement({required this.auth, required this.googleAuth});
+
+  Future<bool> signIn({required String email, required String password}) async {
     try {
-      return await _auth.signIn(email: email, password: password);
+      return await auth.signIn(email: email, password: password);
     } catch (e) {
       rethrow;
     }
   }
 
-  static Future<bool> signUp(
+  Future<bool> signInWithGoogle() async {
+    try {
+      return await googleAuth.signInWithGoogle();
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<bool> signUp(
       {required String name,
       required String email,
       required String password}) async {
     try {
-      return await _auth.signUp(name: name, email: email, password: password);
+      return await auth.signUp(name: name, email: email, password: password);
     } catch (e) {
       rethrow;
     }
   }
 
-  static Future<bool> signOut() async {
+  Future<bool> signOut() async {
     try {
-      return await _auth.signOut();
+      return await auth.signOut();
     } catch (e) {
       rethrow;
     }

@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:get/get.dart';
-import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 
@@ -84,10 +82,9 @@ class _State extends State<LoginScreen> {
                             child: const Text("Login"),
                             onPressed: () async {
                               if (connectivityController.connected) {
-                                var result = await AuthManagement.signIn(
+                                await controller.manager.signIn(
                                     email: emailController.text,
                                     password: passwordController.text);
-                                controller.authenticated = result;
                               } else {
                                 Get.showSnackbar(
                                   GetBar(
@@ -108,6 +105,13 @@ class _State extends State<LoginScreen> {
                     key: const Key("toSignUpButton"),
                     child: const Text("Registrarse"),
                     onPressed: widget.onViewSwitch,
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: SignInButton(
+                    Buttons.GoogleDark,
+                    onPressed: () => controller.manager.signInWithGoogle(),
                   ),
                 ),
               ],

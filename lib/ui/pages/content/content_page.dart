@@ -41,7 +41,7 @@ class ContentPage extends StatelessWidget {
         tile: const Text("Red Egresados"),
         context: context,
         onSignOff: () {
-          authController.authenticated = false;
+          authController.manager.signOut();
         },
       ),
       body: SafeArea(

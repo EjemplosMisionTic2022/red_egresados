@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 
@@ -95,11 +94,10 @@ class _State extends State<SignUpScreen> {
                             key: const Key("signUpButton"),
                             onPressed: () async {
                               if (connectivityController.connected) {
-                                var result = await AuthManagement.signUp(
+                                await controller.manager.signUp(
                                     name: nameController.text,
                                     email: emailController.text,
                                     password: passwordController.text);
-                                controller.authenticated = result;
                               } else {
                                 Get.showSnackbar(
                                   GetBar(
