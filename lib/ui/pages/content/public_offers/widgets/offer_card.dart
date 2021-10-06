@@ -4,9 +4,8 @@ import 'package:get/get.dart';
 import 'package:red_egresados/ui/widgets/card.dart';
 
 class OfferCard extends StatelessWidget {
-  final String title, content, arch, level;
-  final int payment;
-  final VoidCallback onCopy, onApply;
+  final String title, content, arch, level, payment;
+  final VoidCallback onApply;
 
   // OfferCard constructor
   const OfferCard(
@@ -16,7 +15,6 @@ class OfferCard extends StatelessWidget {
       required this.arch,
       required this.level,
       required this.payment,
-      required this.onCopy,
       required this.onApply})
       : super(key: key);
 

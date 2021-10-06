@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:red_egresados/data/services/work_pool.dart';
+import 'package:red_egresados/domain/models/public_job.dart';
 import 'widgets/offer_card.dart';
 
 class PublicOffersScreen extends StatefulWidget {
@@ -10,23 +13,50 @@ class PublicOffersScreen extends StatefulWidget {
 }
 
 class _State extends State<PublicOffersScreen> {
-  final items = List<String>.generate(20, (i) => "Item $i");
+  late WorkPoolService service;
+  late Future<List<PublicJob>> futureJobs;
+
+  @override
+  void initState() {
+    super.initState();
+    service = WorkPoolService();
+    futureJobs = service.fecthData();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: items.length,
-      itemBuilder: (context, index) {
-        return OfferCard(
-          title: 'Desarrollador backend de NodeJs',
-          content:
-              'Estamos buscando un desarrollador backend independiente de NodeJS para trabajar en el backend de una aplicación nativa de Android. Alguien que pueda ayudarnos en la creación de una aplicación móvil de redes sociales basada en video desde cero. Este sería un puesto remunerado con la opción de trabajar desde casa. Una oportunidad de aprender y desarrollar algo desde cero.',
-          arch: 'Android',
-          level: 'Experto',
-          payment: 3000000,
-          onCopy: () => {},
-          onApply: () => {},
-        );
+    return FutureBuilder<List<PublicJob>>(
+      future: futureJobs,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          final items = snapshot.data!;
+          return ListView.builder(
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              PublicJob job = items[index];
+              return OfferCard(
+                title: job.title,
+                content: job.description,
+                arch: job.category,
+                level: job.experience,
+                payment: job.payment,
+                onApply: () => {
+                  Get.showSnackbar(
+                    GetBar(
+                      message: "Has aplicado a esta oferta.",
+                      duration: const Duration(seconds: 2),
+                    ),
+                  )
+                },
+              );
+            },
+          );
+        } else if (snapshot.hasError) {
+          return Text("${snapshot.error}");
+        }
+
+        // By default, show a loading spinner.
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }
