@@ -70,7 +70,7 @@ class FirestoreDB extends DatabaseInterface {
     // IMPORTANT! This query is case specific.
 
     // H * m * s * ms
-    final lifeSpan = 24 * 60 * 60 * 1000;
+    const lifeSpan = 24 * 60 * 60 * 1000;
     final minimumTimestamp = DateTime.now().millisecondsSinceEpoch - lifeSpan;
 
     return _dbReference

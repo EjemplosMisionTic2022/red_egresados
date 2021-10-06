@@ -19,9 +19,11 @@ class AuthController extends GetxController {
 
   // Reactive Getters
   RxBool get reactiveAuth => _authenticated;
+  Rx<User?> get reactiveUser => _currentUser;
 
   // Getters
   bool get authenticated => _authenticated.value;
+  User? get currentUser => _currentUser.value;
 
   AuthManagement get manager => _manager;
 }
