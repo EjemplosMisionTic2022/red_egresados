@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:red_egresados/data/repositories/auth.dart';
 
 void main() {
   late Auth auth;
@@ -26,4 +25,15 @@ void main() {
     final result = await auth.signOut();
     expect(result, true);
   });
+}
+
+class Auth {
+  signIn({required String email, required String password}) {}
+
+  signUp(
+      {required String name,
+      required String email,
+      required String password}) {}
+
+  signOut() {}
 }
