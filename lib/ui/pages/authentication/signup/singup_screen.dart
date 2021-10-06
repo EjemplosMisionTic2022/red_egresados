@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
+import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 
 class SignUpScreen extends StatefulWidget {
   final VoidCallback onViewSwitch;
@@ -15,6 +16,7 @@ class _State extends State<SignUpScreen> {
   final nameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final controller = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -94,9 +96,7 @@ class _State extends State<SignUpScreen> {
                                   name: nameController.text,
                                   email: emailController.text,
                                   password: passwordController.text);
-                              if (result) {
-                                Get.offNamed('/content');
-                              }
+                              controller.authenticated = result;
                             },
                             child: const Text("Registrar"),
                           ),

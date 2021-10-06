@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/route_manager.dart';
+import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
+import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
   final VoidCallback onViewSwitch;
@@ -14,6 +15,7 @@ class LoginScreen extends StatefulWidget {
 class _State extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final controller = Get.find<AuthController>();
 
   @override
   Widget build(BuildContext context) {
@@ -74,15 +76,13 @@ class _State extends State<LoginScreen> {
                         child: Padding(
                           padding: const EdgeInsets.all(14.0),
                           child: ElevatedButton(
-                          key: const Key("signInButton"),
+                            key: const Key("signInButton"),
                             child: const Text("Login"),
                             onPressed: () async {
                               var result = await AuthManagement.signIn(
                                   email: emailController.text,
                                   password: passwordController.text);
-                              if (result) {
-                                Get.offNamed('/content');
-                              }
+                              controller.authenticated = result;
                             },
                           ),
                         ),
