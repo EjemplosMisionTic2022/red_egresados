@@ -2,7 +2,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 class PermissionManager {
   Future<bool> gpsPermission() async {
-    var status = await Permission.camera.status;
+    var status = await Permission.location.status;
     return status.isGranted || status.isLimited;
   }
 
