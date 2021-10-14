@@ -11,6 +11,7 @@ import 'package:red_egresados/domain/use_cases/auth_management.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 import 'package:red_egresados/domain/use_cases/controllers/location.dart';
+import 'package:red_egresados/domain/use_cases/controllers/notification.dart';
 import 'package:red_egresados/domain/use_cases/controllers/permissions.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 import 'package:red_egresados/domain/use_cases/permission_management.dart';
@@ -115,6 +116,10 @@ class _AppState extends State<App> {
     });
 
     Get.put(LocationController());
+    // Notification controller
+    NotificationController notificationController =
+        Get.put(NotificationController());
+    notificationController.initialize();
   }
 
   _firebaseStateInit() {

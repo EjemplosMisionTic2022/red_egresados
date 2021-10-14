@@ -8,9 +8,11 @@ import 'package:red_egresados/domain/models/location.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
 import 'package:red_egresados/domain/use_cases/controllers/location.dart';
+import 'package:red_egresados/domain/use_cases/controllers/notification.dart';
 import 'package:red_egresados/domain/use_cases/controllers/permissions.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 import 'package:red_egresados/domain/use_cases/location_management.dart';
+import 'package:red_egresados/domain/use_cases/notification_manager.dart';
 import 'widgets/location_card.dart';
 
 class LocationScreen extends StatelessWidget {
@@ -22,6 +24,7 @@ class LocationScreen extends StatelessWidget {
   final connectivityController = Get.find<ConnectivityController>();
   final uiController = Get.find<UIController>();
   final locationController = Get.find<LocationController>();
+  final notificationController = Get.find<NotificationController>();
   final service = LocationService();
 
   @override
@@ -68,6 +71,10 @@ class LocationScreen extends StatelessWidget {
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
                     final items = snapshot.data!;
+                    notificationController.show(
+                        title: 'Egresados cerca.',
+                        body:
+                            'Hay ${items.length} egresados cerca de tu ubicación...');
                     return ListView.builder(
                       itemCount: items.length,
                       itemBuilder: (context, index) {
@@ -112,6 +119,10 @@ class LocationScreen extends StatelessWidget {
       locationController.locationManager = LocationManager();
       _updatePosition(uid, name);
     }
+    notificationController.createChannel(
+        id: 'users-location',
+        name: 'Users Location',
+        description: 'Other users location...');
   }
 
   _updatePosition(String uid, String name) async {

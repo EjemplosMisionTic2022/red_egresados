@@ -41,6 +41,7 @@ dependencies:
   permission_handler: ^8.2.2
   geolocator: ^7.7.0
   url_launcher: ^6.0.12
+  flutter_local_notifications: ^9.0.0
 
 dev_dependencies:
   flutter_test:
