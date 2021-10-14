@@ -14,7 +14,7 @@ class NotificationService implements NotificationInterface {
   }
 
   @override
-  AndroidNotificationDetails createChannel(
+  NotificationDetails createChannel(
       {required String id, required String name, required String description}) {
     final AndroidNotificationDetails androidPlatformChannelSpecifics =
         AndroidNotificationDetails(
@@ -24,15 +24,7 @@ class NotificationService implements NotificationInterface {
       importance: Importance.max,
       priority: Priority.max,
     );
-    return androidPlatformChannelSpecifics;
-  }
-
-  @override
-  NotificationDetails getNotificationDetails(
-      AndroidNotificationDetails details) {
-    final NotificationDetails platformChannelSpecifics =
-        NotificationDetails(android: details);
-    return platformChannelSpecifics;
+    return NotificationDetails(android: androidPlatformChannelSpecifics);
   }
 
   @override

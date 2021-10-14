@@ -6,8 +6,6 @@ abstract class NotificationInterface {
   void createChannel(
       {required String id, required String name, required String description});
 
-  void getNotificationDetails(AndroidNotificationDetails details);
-
   void showNotification(
       {required String title,
       required String body,

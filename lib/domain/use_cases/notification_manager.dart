@@ -8,16 +8,15 @@ class NotificationManager {
     await _service.initialize();
   }
 
-  AndroidNotificationDetails createChannel(
+  NotificationDetails createChannel(
       {required String id, required String name, required String description}) {
     return _service.createChannel(id: id, name: name, description: description);
   }
 
   void showNotification(
-      {required AndroidNotificationDetails channel,
+      {required NotificationDetails channel,
       required String title,
       required String body}) async {
-    final details = _service.getNotificationDetails(channel);
-    await _service.showNotification(title: title, body: body, details: details);
+    await _service.showNotification(title: title, body: body, details: channel);
   }
 }

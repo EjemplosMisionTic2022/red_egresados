@@ -5,7 +5,7 @@ import 'package:red_egresados/domain/use_cases/notification_manager.dart';
 class NotificationController extends GetxController {
   // Observables
   final _manager = NotificationManager();
-  late AndroidNotificationDetails _channel;
+  late NotificationDetails _channel;
 
   initialize() async {
     await _manager.initialize();
