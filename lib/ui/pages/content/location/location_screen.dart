@@ -1,7 +1,6 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:red_egresados/data/services/location.dart';
 import 'package:red_egresados/domain/models/location.dart';
@@ -12,7 +11,7 @@ import 'package:red_egresados/domain/use_cases/controllers/notification.dart';
 import 'package:red_egresados/domain/use_cases/controllers/permissions.dart';
 import 'package:red_egresados/domain/use_cases/controllers/ui.dart';
 import 'package:red_egresados/domain/use_cases/location_management.dart';
-import 'package:red_egresados/domain/use_cases/notification_manager.dart';
+import 'package:workmanager/workmanager.dart';
 import 'widgets/location_card.dart';
 
 class LocationScreen extends StatelessWidget {
@@ -127,7 +126,12 @@ class LocationScreen extends StatelessWidget {
 
   _updatePosition(String uid, String name) async {
     final position = await locationController.manager.getCurrentLocation();
+    await locationController.manager.storeUserDetails(uid: uid, name: name);
     locationController.location = MyLocation(
         name: name, id: uid, lat: position.latitude, long: position.longitude);
+    Workmanager().registerPeriodicTask(
+      "1",
+      "locationPeriodicTask",
+    );
   }
 }
