@@ -1,6 +1,6 @@
-# red_egresados_reducido
+# Red Egresados
 
-A new Flutter project.
+Solución completa del proyecto practico Red Egresados - Programación movil MISION TIC
 
 ## Getting Started
 
