@@ -1,4 +1,4 @@
-package com.example.red_egresados_reducido
+package com.example.red_egresados
 
 import io.flutter.embedding.android.FlutterActivity
 

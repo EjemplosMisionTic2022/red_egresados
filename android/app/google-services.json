@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "969854742581",
+    "firebase_url": "https://misiontic-client-default-rtdb.firebaseio.com",
+    "project_id": "misiontic-client",
+    "storage_bucket": "misiontic-client.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:969854742581:android:dcc46872a568934bc3417c",
+        "android_client_info": {
+          "package_name": "com.example.red_egresados"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "969854742581-j2hban3a81f9aqebtqmpkqlkiu0kq0r3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.red_egresados",
+            "certificate_hash": "eb5b33f3bc8b5a542384f8a756dc9041fdd7d5d1"
+          }
+        },
+        {
+          "client_id": "969854742581-3f3n87djkh0ldmcipuou6k74f924q2df.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvqbAJJmyf7r86stBdUNqldntnppMtD60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "969854742581-3f3n87djkh0ldmcipuou6k74f924q2df.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

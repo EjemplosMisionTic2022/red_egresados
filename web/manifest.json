@@ -1,6 +1,6 @@
 {
-    "name": "red_egresados_reducido",
-    "short_name": "red_egresados_reducido",
+    "name": "red_egresados",
+    "short_name": "red_egresados",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
