@@ -58,9 +58,9 @@ class _State extends State<LoginScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(14.0),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Get.offNamed('/content');
-                    },
+                    // ---------------------------------------
+                    // 1. Implementa el metodo onPressed para ejecutar una acción al presionar el boton 'Iniciar Sesiòn'
+                    // ---------------------------------------
                     child: const Text("Login"),
                   ),
                 ),

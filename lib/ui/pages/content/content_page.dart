@@ -39,8 +39,8 @@ class _State extends State<ContentPage> {
     });
   }
 
-  // We create a Scaffold that is used for all the content pages
-  // We only define one AppBar, and one scaffold.
+  // Creamos un Scaffold que se utiliza para todas las páginas de contenido
+  // Sólo definimos una AppBar, y un andamio.
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,9 +48,9 @@ class _State extends State<ContentPage> {
         picUrl: 'https://uifaces.co/our-content/donated/gPZwCbdS.jpg',
         tile: const Text("Red Egresados"),
         context: context,
-        onSignOff: () {
-          Get.offNamed('/auth');
-        },
+        // ---------------------------------------
+        // 1. Implementa el metodo onSignOff para redirigir a la ruta de autenticación
+        // ---------------------------------------
       ),
       body: SafeArea(
         child: Padding(

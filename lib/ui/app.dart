@@ -7,7 +7,7 @@ import 'package:red_egresados/ui/theme/theme.dart';
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  // Este widget es la raíz de su aplicación.
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
@@ -21,11 +21,10 @@ class App extends StatelessWidget {
       // Por defecto tomara la seleccion del sistema
       themeMode: ThemeMode.system,
       home: const AuthenticationPage(),
-      // We add the two possible routes
-      routes: {
-        '/auth': (context) => const AuthenticationPage(),
-        '/content': (context) => const ContentPage(),
-      },
+       // ---------------------------------------
+       // 1. Crea las rutas posibles para nuestra app
+       // ---------------------------------------
+      routes: {},
     );
   }
 }
