@@ -14,36 +14,10 @@ class StateCard extends StatelessWidget {
       required this.onChat})
       : super(key: key);
 
-  // We create a Stateless widget that contais an AppCard,
-  // Passing all the customizable views as parameters
+  // Creamos un widget Stateless que contiene una AppCard,
+  // Pasando todas las vistas personalizables como parámetros
   @override
   Widget build(BuildContext context) {
-    return AppCard(
-      title: title,
-      content: Text(
-        content,
-        style: Theme.of(context).textTheme.bodyText1,
-      ),
-      // topLeftWidget widget as an Avatar
-      topLeftWidget: SizedBox(
-        height: 48.0,
-        width: 48.0,
-        child: Center(
-          child: CircleAvatar(
-            minRadius: 14.0,
-            maxRadius: 14.0,
-            backgroundImage: NetworkImage(picUrl),
-          ),
-        ),
-      ),
-      // topRightWidget widget as an IconButton
-      topRightWidget: IconButton(
-        icon: const Icon(
-          Icons.chat_outlined,
-          color: Colors.blue,
-        ),
-        onPressed: onChat,
-      ),
-    );
+    //Implementa el widget con ayuda del instructor
   }
 }
