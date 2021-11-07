@@ -89,12 +89,9 @@ class _State extends State<LoginScreen> {
             child: const Text("Registrarse"),
             onPressed: widget.onViewSwitch,
           ),
-          Flexible(
-            fit: FlexFit.loose,
-            child: SignInButton(
-              Buttons.GoogleDark,
-              onPressed: () => controller.manager.signInWithGoogle(),
-            ),
+          SignInButton(
+            Buttons.GoogleDark,
+            onPressed: () => controller.manager.signInWithGoogle(),
           ),
         ],
       ),
