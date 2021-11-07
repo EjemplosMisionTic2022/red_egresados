@@ -26,95 +26,71 @@ class _State extends State<LoginScreen> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(
-            flex: 1,
-          ),
-          Expanded(
-            flex: 3,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      "Iniciar sesión",
-                      style: Theme.of(context).textTheme.headline1,
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      key: const Key("signInEmail"),
-                      controller: emailController,
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Correo electrónico',
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextField(
-                      key: const Key("signInPassword"),
-                      controller: passwordController,
-                      obscureText: true,
-                      obscuringCharacter: "*",
-                      decoration: const InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: 'Clave',
-                      ),
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.all(14.0),
-                          child: ElevatedButton(
-                            key: const Key("signInButton"),
-                            child: const Text("Login"),
-                            onPressed: () async {
-                              if (connectivityController.connected) {
-                                var result = await AuthManagement.signIn(
-                                    email: emailController.text,
-                                    password: passwordController.text);
-                                controller.authenticated = result;
-                              } else {
-                                Get.showSnackbar(
-                                  GetBar(
-                                    message: "No estas conectado a la red.",
-                                    duration: const Duration(seconds: 2),
-                                  ),
-                                );
-                              }
-                            },
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    key: const Key("toSignUpButton"),
-                    child: const Text("Registrarse"),
-                    onPressed: widget.onViewSwitch,
-                  ),
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              "Iniciar sesión",
+              style: Theme.of(context).textTheme.headline1,
             ),
           ),
-          const Spacer(
-            flex: 1,
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              key: const Key("signInEmail"),
+              controller: emailController,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Correo electrónico',
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              key: const Key("signInPassword"),
+              controller: passwordController,
+              obscureText: true,
+              obscuringCharacter: "*",
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Clave',
+              ),
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: ElevatedButton(
+                    child: const Text("Login"),
+                    onPressed: () async {
+                      if (connectivityController.connected) {
+                        var result = await AuthManagement.signIn(
+                            email: emailController.text,
+                            password: passwordController.text);
+                        controller.authenticated = result;
+                      } else {
+                        Get.showSnackbar(
+                          GetBar(
+                            message: "No estas conectado a la red.",
+                            duration: const Duration(seconds: 2),
+                          ),
+                        );
+                      }
+                    },
+                  ),
+                ),
+              )
+            ],
+          ),
+          TextButton(
+            key: const Key("toSignUpButton"),
+            child: const Text("Registrarse"),
+            onPressed: widget.onViewSwitch,
           ),
         ],
       ),
