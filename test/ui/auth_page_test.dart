@@ -4,7 +4,13 @@ import 'package:get/get.dart';
 import 'package:red_egresados/ui/pages/authentication/auth_page.dart';
 
 void main() {
+  final TestWidgetsFlutterBinding binding =
+      TestWidgetsFlutterBinding.ensureInitialized()
+          as TestWidgetsFlutterBinding;
+
   testWidgets("login-screen", (WidgetTester tester) async {
+    binding.window.physicalSizeTestValue = const Size(1080, 1920);
+    binding.window.devicePixelRatioTestValue = 1.0;
     // Widgets Testing requires that the widgets we need to test have a unique key
     final emailField = find.byKey(const ValueKey("signInEmail"));
     final passwordField = find.byKey(const ValueKey("signInPassword"));
