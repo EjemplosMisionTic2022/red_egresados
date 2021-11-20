@@ -8,12 +8,8 @@ class PublicJob {
       required this.category,
       required this.experience});
 
-  factory PublicJob.fromJson(Map<String, dynamic> map) {
-    return PublicJob(
-        title: map['title'],
-        description: map['description'],
-        payment: map['payment'],
-        category: map['category'],
-        experience: map['experience']);
-  }
+  //ACTIVIDAD
+  //IMPLEMENTE LA CONVERSIÓN DE JSON A OBJETO
+  // factory PublicJob.fromJson(Map<String, dynamic> map) {
+  // }
 }

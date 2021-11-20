@@ -54,9 +54,9 @@ class App extends StatelessWidget {
       }
     });
     // Connectivity stream
-    Connectivity().onConnectivityChanged.listen((connectivityStatus) {
-      log("connection changed");
-      connectivityController.connectivity = connectivityStatus;
-    });
+
+    // ACTIVIDAD
+    // IMPLEMENTE LA ESCUCHA PARA EL STRING DE CONECTIVIDAD
+   
   }
 }

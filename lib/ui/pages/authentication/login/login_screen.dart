@@ -68,18 +68,13 @@ class _State extends State<LoginScreen> {
                   child: ElevatedButton(
                     child: const Text("Login"),
                     onPressed: () async {
+                      // ACTIVIDAD
+                      // LUEGO DE VALIDAR EL ESTADO DE RED:
                       if (connectivityController.connected) {
-                        var result = await AuthManagement.signIn(
-                            email: emailController.text,
-                            password: passwordController.text);
-                        controller.authenticated = result;
+                       // PERMITA LA AUTENTICACIÓN A LA APP SI SE DETECTA CONEXIÓN
                       } else {
-                        Get.showSnackbar(
-                          GetBar(
-                            message: "No estas conectado a la red.",
-                            duration: const Duration(seconds: 2),
-                          ),
-                        );
+                        // MUESTRE UN SNACKBAR (notificación) INDICANDO QUE NO EXISTE CONEXIÓN
+
                       }
                     },
                   ),
