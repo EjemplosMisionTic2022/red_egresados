@@ -37,7 +37,7 @@ class ChatPage extends StatelessWidget {
           remoteUser?.name ?? chat!.getTargetUser(currentUser.email!).name,
         ),
         picUrl: remoteUser?.pictureUrl ??
-            chat!.getTargetUser(currentUser.email!).pictureUrl,
+            "https://ui-avatars.com/api/?name=${remoteUser?.name ?? 'User'}",
         context: context,
         onSignOff: () => Get.back(),
         home: false,

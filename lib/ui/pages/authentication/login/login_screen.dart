@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_signin_button/flutter_signin_button.dart';
 import 'package:get/get.dart';
 import 'package:red_egresados/domain/use_cases/controllers/authentication.dart';
 import 'package:red_egresados/domain/use_cases/controllers/connectivity.dart';
@@ -88,10 +87,6 @@ class _State extends State<LoginScreen> {
             key: const Key("toSignUpButton"),
             child: const Text("Registrarse"),
             onPressed: widget.onViewSwitch,
-          ),
-          SignInButton(
-            Buttons.GoogleDark,
-            onPressed: () => controller.manager.signInWithGoogle(),
           ),
         ],
       ),
