@@ -1,5 +1,4 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:red_egresados/data/repositories/google_auth.dart';
 import 'package:red_egresados/data/repositories/password_auth.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
 
@@ -9,7 +8,6 @@ void main() {
   setUp(() {
     management = AuthManagement(
       auth: PasswordAuth(),
-      googleAuth: GoogleAuth(),
     );
   });
   // AuthManagement uses Auth for management
@@ -29,8 +27,7 @@ void main() {
     "SignIn invalid",
     () async {
       expect(
-          await management.signIn(
-              email: "user@test.com", password: "123456"),
+          await management.signIn(email: "user@test.com", password: "123456"),
           false);
     },
   );
