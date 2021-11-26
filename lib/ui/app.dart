@@ -4,7 +4,6 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:red_egresados/data/repositories/google_auth.dart';
 import 'package:red_egresados/data/repositories/password_auth.dart';
 import 'package:red_egresados/domain/repositorires/auth.dart';
 import 'package:red_egresados/domain/use_cases/auth_management.dart';
@@ -105,7 +104,6 @@ class _AppState extends State<App> {
     // Setting manager
     authController.authManagement = AuthManagement(
       auth: PasswordAuth(),
-      googleAuth: GoogleAuth(),
     );
     // Watching auth state changes
     AuthInterface.authStream.listen(
